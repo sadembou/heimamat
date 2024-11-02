@@ -144,4 +144,25 @@ export default buildConfig({
     }),
     payloadCloud(),
   ],
+  // localization
+  localization: {
+    locales: [
+      {
+        label: {
+          en: 'English', // English label
+          fo: 'Enskt', // Faroese label
+        },
+        code: 'en',
+      },
+      {
+        label: {
+          en: 'Faroese', // English label
+          fo: 'Føroyskt', // Faroese label
+        },
+        code: 'fo',
+      },
+    ],
+    defaultLocale: 'en', // required
+    fallback: false,
+  },
 })

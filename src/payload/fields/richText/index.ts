@@ -43,6 +43,7 @@ const richText: RichText = (
                     leaves: [...leaves],
                   },
                 }),
+                localized: true,
               },
               {
                 type: 'radio',
@@ -97,6 +98,7 @@ const richText: RichText = (
       name: 'richText',
       type: 'richText',
       required: true,
+      localized: true,
       editor: slateEditor({
         admin: slateOptions,
       }),

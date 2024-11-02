@@ -74,7 +74,6 @@ const Products: CollectionConfig = {
             {
               name: 'layout',
               type: 'blocks',
-              required: true,
               blocks: [CallToAction, Content, MediaBlock, Archive],
             },
           ],
@@ -140,6 +139,15 @@ const Products: CollectionConfig = {
             not_in: [id],
           },
         }
+      },
+    },
+    {
+      name: 'isPromotion',
+      type: 'checkbox',
+      label: 'Promotion',
+      defaultValue: false,
+      admin: {
+        position: 'sidebar',
       },
     },
     slugField(),

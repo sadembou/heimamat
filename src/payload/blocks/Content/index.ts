@@ -27,6 +27,7 @@ const columnFields: Field[] = [
         label: 'Full',
       },
     ],
+    //localized: true,
   },
   richText(),
   {
@@ -50,6 +51,7 @@ export const Content: Block = {
       name: 'columns',
       type: 'array',
       fields: columnFields,
+      //localized: true
     },
   ],
 }

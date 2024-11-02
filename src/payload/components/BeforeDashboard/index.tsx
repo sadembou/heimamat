@@ -43,16 +43,16 @@ const BeforeDashboard: React.FC = () => {
           </a>
           {' for more details.'}
         </li>
-        <li>
+        {/*<li>
           <Link to="/admin/collections/products">Link each of your products</Link>
           {' to Stripe by selecting the corresponding product using the dropdown under '}
           <i>Product Details</i>.
-        </li>
-        <li>
+        </li>*/}
+        {/*<li>
           If you created this repo using Payload Cloud, head over to GitHub and clone it to your
           local machine. It will be under the <i>GitHub Scope</i> that you selected when creating
           this project.
-        </li>
+        </li>*/}
         <li>
           {'Modify your '}
           <a
@@ -80,11 +80,11 @@ const BeforeDashboard: React.FC = () => {
           </a>
           {' docs.'}
         </li>
-        <li>
+        {/*<li>
           Commit and push your changes to the repository to trigger a redeployment of your project.
-        </li>
+        </li>*/}
       </ul>
-      {'Pro Tip: This block is a '}
+      {/*{'Pro Tip: This block is a '}
       <a
         href={'https://payloadcms.com/docs/admin/components#base-component-overrides'}
         target="_blank"
@@ -92,7 +92,7 @@ const BeforeDashboard: React.FC = () => {
       >
         custom component
       </a>
-      , you can remove it at any time by updating your <strong>payload.config</strong>.
+      , you can remove it at any time by updating your <strong>payload.config</strong>.*/}
     </div>
   )
 }
