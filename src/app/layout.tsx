@@ -10,11 +10,10 @@ import { InitTheme } from './_providers/Theme/InitTheme'
 import { mergeOpenGraph } from './_utilities/mergeOpenGraph'
 
 import './_css/app.scss'
-import LanguageSelector from './_components/LanguageSwitcher'
 
 const nunito = Nunito({
   subsets: ['latin'],
-  weight:['400', '700'],
+  weight: ['400', '700'],
   variable: '--font-nunito'
 })
 
@@ -44,7 +43,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'https://payloadcms.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL),
+  title: "Mistral Loysnir - Kervisverkfrøðingur",
+  description: "Full Stack & PLC automatiónsforritari og KT-verkfrøðingur",
   twitter: {
     card: 'summary_large_image',
     creator: '@payloadcms',

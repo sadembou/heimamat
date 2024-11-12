@@ -15,8 +15,6 @@ export async function Footer() {
     console.error(error)
   }
 
-  const navItems = footer?.navItems || []
-
   return (
     <>
       <FooterComponent footer={footer} />
