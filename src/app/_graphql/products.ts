@@ -12,6 +12,33 @@ export const PRODUCTS = `
   }
 `
 
+/*export const PRODUCT = `
+  query Product($slug: String, $draft: Boolean) {
+    Products(where: { slug: { equals: $slug}}, limit: 1, draft: $draft) {
+      docs {
+        id
+        title
+        price
+        ${PRODUCT_CATEGORIES}
+        layout {
+          ${CALL_TO_ACTION}
+          ${CONTENT}
+          ${MEDIA_BLOCK}
+          ${ARCHIVE_BLOCK}
+        }
+        relatedProducts {
+          id
+          slug
+          title
+          ${META}
+        }
+        isPromotion
+        ${META}
+      }
+    }
+  }
+`*/
+
 export const PRODUCT = `
   query Product($slug: String, $draft: Boolean) {
     Products(where: { slug: { equals: $slug}}, limit: 1, draft: $draft) {
@@ -19,6 +46,7 @@ export const PRODUCT = `
         id
         title
         stripeProductID
+        ingredients
         ${PRODUCT_CATEGORIES}
         layout {
           ${CALL_TO_ACTION}
@@ -40,6 +68,7 @@ export const PRODUCT = `
     }
   }
 `
+
 
 export const PRODUCT_PAYWALL = `
   query Product($slug: String, $draft: Boolean) {

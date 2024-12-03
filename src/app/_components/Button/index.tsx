@@ -17,6 +17,8 @@ export type Props = {
   disabled?: boolean
   invert?: boolean
   children?: React.ReactNode
+  icon?:string
+  title?:string
 }
 
 export const Button: React.FC<Props> = ({
@@ -31,6 +33,9 @@ export const Button: React.FC<Props> = ({
   disabled,
   invert,
   children,
+  icon,
+  title,
+
 }) => {
   let el = elFromProps
 
@@ -66,6 +71,7 @@ export const Button: React.FC<Props> = ({
 
   return (
     <Element
+      title={title}
       href={href}
       className={className}
       type={type}
@@ -74,6 +80,7 @@ export const Button: React.FC<Props> = ({
       disabled={disabled}
     >
       {content}
+      {icon && <img src={icon} alt='pay-method' width={25}/>}
     </Element>
   )
 }

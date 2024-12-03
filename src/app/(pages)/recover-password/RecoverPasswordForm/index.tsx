@@ -9,6 +9,7 @@ import { Input } from '../../../_components/Input'
 import { Message } from '../../../_components/Message'
 
 import classes from './index.module.scss'
+import payload from 'payload'
 
 type FormData = {
   email: string

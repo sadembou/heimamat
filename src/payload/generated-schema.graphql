@@ -100,6 +100,7 @@ type Media {
   id: String
   alt: String!
   caption(depth: Int): JSON
+  cloudinary: Media_Cloudinary
   updatedAt: DateTime
   createdAt: DateTime
   url: String
@@ -108,6 +109,14 @@ type Media {
   filesize: Float
   width: Float
   height: Float
+}
+
+type Media_Cloudinary {
+  public_id: String
+  original_filename: String
+  format: String
+  secure_url: String
+  resource_type: String
 }
 
 enum LocaleInputType {
@@ -124,6 +133,11 @@ enum FallbackLocaleInputType {
 input Page_Hero_Links_Link_Icon_where {
   alt: Page_Hero_Links_Link_Icon_alt_operator
   caption: Page_Hero_Links_Link_Icon_caption_operator
+  cloudinary__public_id: Page_Hero_Links_Link_Icon_cloudinary__public_id_operator
+  cloudinary__original_filename: Page_Hero_Links_Link_Icon_cloudinary__original_filename_operator
+  cloudinary__format: Page_Hero_Links_Link_Icon_cloudinary__format_operator
+  cloudinary__secure_url: Page_Hero_Links_Link_Icon_cloudinary__secure_url_operator
+  cloudinary__resource_type: Page_Hero_Links_Link_Icon_cloudinary__resource_type_operator
   updatedAt: Page_Hero_Links_Link_Icon_updatedAt_operator
   createdAt: Page_Hero_Links_Link_Icon_createdAt_operator
   url: Page_Hero_Links_Link_Icon_url_operator
@@ -152,6 +166,61 @@ input Page_Hero_Links_Link_Icon_caption_operator {
   not_equals: JSON
   like: JSON
   contains: JSON
+  exists: Boolean
+}
+
+input Page_Hero_Links_Link_Icon_cloudinary__public_id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Page_Hero_Links_Link_Icon_cloudinary__original_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Page_Hero_Links_Link_Icon_cloudinary__format_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Page_Hero_Links_Link_Icon_cloudinary__secure_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Page_Hero_Links_Link_Icon_cloudinary__resource_type_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
   exists: Boolean
 }
 
@@ -254,6 +323,11 @@ input Page_Hero_Links_Link_Icon_id_operator {
 input Page_Hero_Links_Link_Icon_where_and {
   alt: Page_Hero_Links_Link_Icon_alt_operator
   caption: Page_Hero_Links_Link_Icon_caption_operator
+  cloudinary__public_id: Page_Hero_Links_Link_Icon_cloudinary__public_id_operator
+  cloudinary__original_filename: Page_Hero_Links_Link_Icon_cloudinary__original_filename_operator
+  cloudinary__format: Page_Hero_Links_Link_Icon_cloudinary__format_operator
+  cloudinary__secure_url: Page_Hero_Links_Link_Icon_cloudinary__secure_url_operator
+  cloudinary__resource_type: Page_Hero_Links_Link_Icon_cloudinary__resource_type_operator
   updatedAt: Page_Hero_Links_Link_Icon_updatedAt_operator
   createdAt: Page_Hero_Links_Link_Icon_createdAt_operator
   url: Page_Hero_Links_Link_Icon_url_operator
@@ -270,6 +344,11 @@ input Page_Hero_Links_Link_Icon_where_and {
 input Page_Hero_Links_Link_Icon_where_or {
   alt: Page_Hero_Links_Link_Icon_alt_operator
   caption: Page_Hero_Links_Link_Icon_caption_operator
+  cloudinary__public_id: Page_Hero_Links_Link_Icon_cloudinary__public_id_operator
+  cloudinary__original_filename: Page_Hero_Links_Link_Icon_cloudinary__original_filename_operator
+  cloudinary__format: Page_Hero_Links_Link_Icon_cloudinary__format_operator
+  cloudinary__secure_url: Page_Hero_Links_Link_Icon_cloudinary__secure_url_operator
+  cloudinary__resource_type: Page_Hero_Links_Link_Icon_cloudinary__resource_type_operator
   updatedAt: Page_Hero_Links_Link_Icon_updatedAt_operator
   createdAt: Page_Hero_Links_Link_Icon_createdAt_operator
   url: Page_Hero_Links_Link_Icon_url_operator
@@ -303,6 +382,11 @@ enum Page_Hero_Links_Link_appearance {
 input Page_Hero_Media_where {
   alt: Page_Hero_Media_alt_operator
   caption: Page_Hero_Media_caption_operator
+  cloudinary__public_id: Page_Hero_Media_cloudinary__public_id_operator
+  cloudinary__original_filename: Page_Hero_Media_cloudinary__original_filename_operator
+  cloudinary__format: Page_Hero_Media_cloudinary__format_operator
+  cloudinary__secure_url: Page_Hero_Media_cloudinary__secure_url_operator
+  cloudinary__resource_type: Page_Hero_Media_cloudinary__resource_type_operator
   updatedAt: Page_Hero_Media_updatedAt_operator
   createdAt: Page_Hero_Media_createdAt_operator
   url: Page_Hero_Media_url_operator
@@ -331,6 +415,61 @@ input Page_Hero_Media_caption_operator {
   not_equals: JSON
   like: JSON
   contains: JSON
+  exists: Boolean
+}
+
+input Page_Hero_Media_cloudinary__public_id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Page_Hero_Media_cloudinary__original_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Page_Hero_Media_cloudinary__format_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Page_Hero_Media_cloudinary__secure_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Page_Hero_Media_cloudinary__resource_type_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
   exists: Boolean
 }
 
@@ -433,6 +572,11 @@ input Page_Hero_Media_id_operator {
 input Page_Hero_Media_where_and {
   alt: Page_Hero_Media_alt_operator
   caption: Page_Hero_Media_caption_operator
+  cloudinary__public_id: Page_Hero_Media_cloudinary__public_id_operator
+  cloudinary__original_filename: Page_Hero_Media_cloudinary__original_filename_operator
+  cloudinary__format: Page_Hero_Media_cloudinary__format_operator
+  cloudinary__secure_url: Page_Hero_Media_cloudinary__secure_url_operator
+  cloudinary__resource_type: Page_Hero_Media_cloudinary__resource_type_operator
   updatedAt: Page_Hero_Media_updatedAt_operator
   createdAt: Page_Hero_Media_createdAt_operator
   url: Page_Hero_Media_url_operator
@@ -449,6 +593,11 @@ input Page_Hero_Media_where_and {
 input Page_Hero_Media_where_or {
   alt: Page_Hero_Media_alt_operator
   caption: Page_Hero_Media_caption_operator
+  cloudinary__public_id: Page_Hero_Media_cloudinary__public_id_operator
+  cloudinary__original_filename: Page_Hero_Media_cloudinary__original_filename_operator
+  cloudinary__format: Page_Hero_Media_cloudinary__format_operator
+  cloudinary__secure_url: Page_Hero_Media_cloudinary__secure_url_operator
+  cloudinary__resource_type: Page_Hero_Media_cloudinary__resource_type_operator
   updatedAt: Page_Hero_Media_updatedAt_operator
   createdAt: Page_Hero_Media_createdAt_operator
   url: Page_Hero_Media_url_operator
@@ -496,6 +645,11 @@ enum Cta_Links_Link_type {
 input Cta_Links_Link_Icon_where {
   alt: Cta_Links_Link_Icon_alt_operator
   caption: Cta_Links_Link_Icon_caption_operator
+  cloudinary__public_id: Cta_Links_Link_Icon_cloudinary__public_id_operator
+  cloudinary__original_filename: Cta_Links_Link_Icon_cloudinary__original_filename_operator
+  cloudinary__format: Cta_Links_Link_Icon_cloudinary__format_operator
+  cloudinary__secure_url: Cta_Links_Link_Icon_cloudinary__secure_url_operator
+  cloudinary__resource_type: Cta_Links_Link_Icon_cloudinary__resource_type_operator
   updatedAt: Cta_Links_Link_Icon_updatedAt_operator
   createdAt: Cta_Links_Link_Icon_createdAt_operator
   url: Cta_Links_Link_Icon_url_operator
@@ -524,6 +678,61 @@ input Cta_Links_Link_Icon_caption_operator {
   not_equals: JSON
   like: JSON
   contains: JSON
+  exists: Boolean
+}
+
+input Cta_Links_Link_Icon_cloudinary__public_id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Cta_Links_Link_Icon_cloudinary__original_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Cta_Links_Link_Icon_cloudinary__format_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Cta_Links_Link_Icon_cloudinary__secure_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Cta_Links_Link_Icon_cloudinary__resource_type_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
   exists: Boolean
 }
 
@@ -626,6 +835,11 @@ input Cta_Links_Link_Icon_id_operator {
 input Cta_Links_Link_Icon_where_and {
   alt: Cta_Links_Link_Icon_alt_operator
   caption: Cta_Links_Link_Icon_caption_operator
+  cloudinary__public_id: Cta_Links_Link_Icon_cloudinary__public_id_operator
+  cloudinary__original_filename: Cta_Links_Link_Icon_cloudinary__original_filename_operator
+  cloudinary__format: Cta_Links_Link_Icon_cloudinary__format_operator
+  cloudinary__secure_url: Cta_Links_Link_Icon_cloudinary__secure_url_operator
+  cloudinary__resource_type: Cta_Links_Link_Icon_cloudinary__resource_type_operator
   updatedAt: Cta_Links_Link_Icon_updatedAt_operator
   createdAt: Cta_Links_Link_Icon_createdAt_operator
   url: Cta_Links_Link_Icon_url_operator
@@ -642,6 +856,11 @@ input Cta_Links_Link_Icon_where_and {
 input Cta_Links_Link_Icon_where_or {
   alt: Cta_Links_Link_Icon_alt_operator
   caption: Cta_Links_Link_Icon_caption_operator
+  cloudinary__public_id: Cta_Links_Link_Icon_cloudinary__public_id_operator
+  cloudinary__original_filename: Cta_Links_Link_Icon_cloudinary__original_filename_operator
+  cloudinary__format: Cta_Links_Link_Icon_cloudinary__format_operator
+  cloudinary__secure_url: Cta_Links_Link_Icon_cloudinary__secure_url_operator
+  cloudinary__resource_type: Cta_Links_Link_Icon_cloudinary__resource_type_operator
   updatedAt: Cta_Links_Link_Icon_updatedAt_operator
   createdAt: Cta_Links_Link_Icon_createdAt_operator
   url: Cta_Links_Link_Icon_url_operator
@@ -712,6 +931,11 @@ enum Content_Columns_Link_type {
 input Content_Columns_Link_Icon_where {
   alt: Content_Columns_Link_Icon_alt_operator
   caption: Content_Columns_Link_Icon_caption_operator
+  cloudinary__public_id: Content_Columns_Link_Icon_cloudinary__public_id_operator
+  cloudinary__original_filename: Content_Columns_Link_Icon_cloudinary__original_filename_operator
+  cloudinary__format: Content_Columns_Link_Icon_cloudinary__format_operator
+  cloudinary__secure_url: Content_Columns_Link_Icon_cloudinary__secure_url_operator
+  cloudinary__resource_type: Content_Columns_Link_Icon_cloudinary__resource_type_operator
   updatedAt: Content_Columns_Link_Icon_updatedAt_operator
   createdAt: Content_Columns_Link_Icon_createdAt_operator
   url: Content_Columns_Link_Icon_url_operator
@@ -740,6 +964,61 @@ input Content_Columns_Link_Icon_caption_operator {
   not_equals: JSON
   like: JSON
   contains: JSON
+  exists: Boolean
+}
+
+input Content_Columns_Link_Icon_cloudinary__public_id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Content_Columns_Link_Icon_cloudinary__original_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Content_Columns_Link_Icon_cloudinary__format_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Content_Columns_Link_Icon_cloudinary__secure_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Content_Columns_Link_Icon_cloudinary__resource_type_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
   exists: Boolean
 }
 
@@ -842,6 +1121,11 @@ input Content_Columns_Link_Icon_id_operator {
 input Content_Columns_Link_Icon_where_and {
   alt: Content_Columns_Link_Icon_alt_operator
   caption: Content_Columns_Link_Icon_caption_operator
+  cloudinary__public_id: Content_Columns_Link_Icon_cloudinary__public_id_operator
+  cloudinary__original_filename: Content_Columns_Link_Icon_cloudinary__original_filename_operator
+  cloudinary__format: Content_Columns_Link_Icon_cloudinary__format_operator
+  cloudinary__secure_url: Content_Columns_Link_Icon_cloudinary__secure_url_operator
+  cloudinary__resource_type: Content_Columns_Link_Icon_cloudinary__resource_type_operator
   updatedAt: Content_Columns_Link_Icon_updatedAt_operator
   createdAt: Content_Columns_Link_Icon_createdAt_operator
   url: Content_Columns_Link_Icon_url_operator
@@ -858,6 +1142,11 @@ input Content_Columns_Link_Icon_where_and {
 input Content_Columns_Link_Icon_where_or {
   alt: Content_Columns_Link_Icon_alt_operator
   caption: Content_Columns_Link_Icon_caption_operator
+  cloudinary__public_id: Content_Columns_Link_Icon_cloudinary__public_id_operator
+  cloudinary__original_filename: Content_Columns_Link_Icon_cloudinary__original_filename_operator
+  cloudinary__format: Content_Columns_Link_Icon_cloudinary__format_operator
+  cloudinary__secure_url: Content_Columns_Link_Icon_cloudinary__secure_url_operator
+  cloudinary__resource_type: Content_Columns_Link_Icon_cloudinary__resource_type_operator
   updatedAt: Content_Columns_Link_Icon_updatedAt_operator
   createdAt: Content_Columns_Link_Icon_createdAt_operator
   url: Content_Columns_Link_Icon_url_operator
@@ -905,6 +1194,11 @@ enum MediaBlock_position {
 input MediaBlock_Media_where {
   alt: MediaBlock_Media_alt_operator
   caption: MediaBlock_Media_caption_operator
+  cloudinary__public_id: MediaBlock_Media_cloudinary__public_id_operator
+  cloudinary__original_filename: MediaBlock_Media_cloudinary__original_filename_operator
+  cloudinary__format: MediaBlock_Media_cloudinary__format_operator
+  cloudinary__secure_url: MediaBlock_Media_cloudinary__secure_url_operator
+  cloudinary__resource_type: MediaBlock_Media_cloudinary__resource_type_operator
   updatedAt: MediaBlock_Media_updatedAt_operator
   createdAt: MediaBlock_Media_createdAt_operator
   url: MediaBlock_Media_url_operator
@@ -933,6 +1227,61 @@ input MediaBlock_Media_caption_operator {
   not_equals: JSON
   like: JSON
   contains: JSON
+  exists: Boolean
+}
+
+input MediaBlock_Media_cloudinary__public_id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input MediaBlock_Media_cloudinary__original_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input MediaBlock_Media_cloudinary__format_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input MediaBlock_Media_cloudinary__secure_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input MediaBlock_Media_cloudinary__resource_type_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
   exists: Boolean
 }
 
@@ -1035,6 +1384,11 @@ input MediaBlock_Media_id_operator {
 input MediaBlock_Media_where_and {
   alt: MediaBlock_Media_alt_operator
   caption: MediaBlock_Media_caption_operator
+  cloudinary__public_id: MediaBlock_Media_cloudinary__public_id_operator
+  cloudinary__original_filename: MediaBlock_Media_cloudinary__original_filename_operator
+  cloudinary__format: MediaBlock_Media_cloudinary__format_operator
+  cloudinary__secure_url: MediaBlock_Media_cloudinary__secure_url_operator
+  cloudinary__resource_type: MediaBlock_Media_cloudinary__resource_type_operator
   updatedAt: MediaBlock_Media_updatedAt_operator
   createdAt: MediaBlock_Media_createdAt_operator
   url: MediaBlock_Media_url_operator
@@ -1051,6 +1405,11 @@ input MediaBlock_Media_where_and {
 input MediaBlock_Media_where_or {
   alt: MediaBlock_Media_alt_operator
   caption: MediaBlock_Media_caption_operator
+  cloudinary__public_id: MediaBlock_Media_cloudinary__public_id_operator
+  cloudinary__original_filename: MediaBlock_Media_cloudinary__original_filename_operator
+  cloudinary__format: MediaBlock_Media_cloudinary__format_operator
+  cloudinary__secure_url: MediaBlock_Media_cloudinary__secure_url_operator
+  cloudinary__resource_type: MediaBlock_Media_cloudinary__resource_type_operator
   updatedAt: MediaBlock_Media_updatedAt_operator
   createdAt: MediaBlock_Media_createdAt_operator
   url: MediaBlock_Media_url_operator
@@ -1100,6 +1459,11 @@ type Category {
 input Category_Media_where {
   alt: Category_Media_alt_operator
   caption: Category_Media_caption_operator
+  cloudinary__public_id: Category_Media_cloudinary__public_id_operator
+  cloudinary__original_filename: Category_Media_cloudinary__original_filename_operator
+  cloudinary__format: Category_Media_cloudinary__format_operator
+  cloudinary__secure_url: Category_Media_cloudinary__secure_url_operator
+  cloudinary__resource_type: Category_Media_cloudinary__resource_type_operator
   updatedAt: Category_Media_updatedAt_operator
   createdAt: Category_Media_createdAt_operator
   url: Category_Media_url_operator
@@ -1128,6 +1492,61 @@ input Category_Media_caption_operator {
   not_equals: JSON
   like: JSON
   contains: JSON
+  exists: Boolean
+}
+
+input Category_Media_cloudinary__public_id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Category_Media_cloudinary__original_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Category_Media_cloudinary__format_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Category_Media_cloudinary__secure_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Category_Media_cloudinary__resource_type_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
   exists: Boolean
 }
 
@@ -1230,6 +1649,11 @@ input Category_Media_id_operator {
 input Category_Media_where_and {
   alt: Category_Media_alt_operator
   caption: Category_Media_caption_operator
+  cloudinary__public_id: Category_Media_cloudinary__public_id_operator
+  cloudinary__original_filename: Category_Media_cloudinary__original_filename_operator
+  cloudinary__format: Category_Media_cloudinary__format_operator
+  cloudinary__secure_url: Category_Media_cloudinary__secure_url_operator
+  cloudinary__resource_type: Category_Media_cloudinary__resource_type_operator
   updatedAt: Category_Media_updatedAt_operator
   createdAt: Category_Media_createdAt_operator
   url: Category_Media_url_operator
@@ -1246,6 +1670,11 @@ input Category_Media_where_and {
 input Category_Media_where_or {
   alt: Category_Media_alt_operator
   caption: Category_Media_caption_operator
+  cloudinary__public_id: Category_Media_cloudinary__public_id_operator
+  cloudinary__original_filename: Category_Media_cloudinary__original_filename_operator
+  cloudinary__format: Category_Media_cloudinary__format_operator
+  cloudinary__secure_url: Category_Media_cloudinary__secure_url_operator
+  cloudinary__resource_type: Category_Media_cloudinary__resource_type_operator
   updatedAt: Category_Media_updatedAt_operator
   createdAt: Category_Media_createdAt_operator
   url: Category_Media_url_operator
@@ -1282,6 +1711,7 @@ type Product {
   title: String
   publishedOn: DateTime
   layout: [Product_Layout!]
+  ingredients: String
   stripeProductID: String
   priceJSON: String
   enablePaywall: Boolean
@@ -1310,6 +1740,11 @@ type Product_Meta {
 input Product_Meta_Image_where {
   alt: Product_Meta_Image_alt_operator
   caption: Product_Meta_Image_caption_operator
+  cloudinary__public_id: Product_Meta_Image_cloudinary__public_id_operator
+  cloudinary__original_filename: Product_Meta_Image_cloudinary__original_filename_operator
+  cloudinary__format: Product_Meta_Image_cloudinary__format_operator
+  cloudinary__secure_url: Product_Meta_Image_cloudinary__secure_url_operator
+  cloudinary__resource_type: Product_Meta_Image_cloudinary__resource_type_operator
   updatedAt: Product_Meta_Image_updatedAt_operator
   createdAt: Product_Meta_Image_createdAt_operator
   url: Product_Meta_Image_url_operator
@@ -1338,6 +1773,61 @@ input Product_Meta_Image_caption_operator {
   not_equals: JSON
   like: JSON
   contains: JSON
+  exists: Boolean
+}
+
+input Product_Meta_Image_cloudinary__public_id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Product_Meta_Image_cloudinary__original_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Product_Meta_Image_cloudinary__format_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Product_Meta_Image_cloudinary__secure_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Product_Meta_Image_cloudinary__resource_type_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
   exists: Boolean
 }
 
@@ -1440,6 +1930,11 @@ input Product_Meta_Image_id_operator {
 input Product_Meta_Image_where_and {
   alt: Product_Meta_Image_alt_operator
   caption: Product_Meta_Image_caption_operator
+  cloudinary__public_id: Product_Meta_Image_cloudinary__public_id_operator
+  cloudinary__original_filename: Product_Meta_Image_cloudinary__original_filename_operator
+  cloudinary__format: Product_Meta_Image_cloudinary__format_operator
+  cloudinary__secure_url: Product_Meta_Image_cloudinary__secure_url_operator
+  cloudinary__resource_type: Product_Meta_Image_cloudinary__resource_type_operator
   updatedAt: Product_Meta_Image_updatedAt_operator
   createdAt: Product_Meta_Image_createdAt_operator
   url: Product_Meta_Image_url_operator
@@ -1456,6 +1951,11 @@ input Product_Meta_Image_where_and {
 input Product_Meta_Image_where_or {
   alt: Product_Meta_Image_alt_operator
   caption: Product_Meta_Image_caption_operator
+  cloudinary__public_id: Product_Meta_Image_cloudinary__public_id_operator
+  cloudinary__original_filename: Product_Meta_Image_cloudinary__original_filename_operator
+  cloudinary__format: Product_Meta_Image_cloudinary__format_operator
+  cloudinary__secure_url: Product_Meta_Image_cloudinary__secure_url_operator
+  cloudinary__resource_type: Product_Meta_Image_cloudinary__resource_type_operator
   updatedAt: Product_Meta_Image_updatedAt_operator
   createdAt: Product_Meta_Image_createdAt_operator
   url: Product_Meta_Image_url_operator
@@ -1494,6 +1994,11 @@ type Page_Meta {
 input Page_Meta_Image_where {
   alt: Page_Meta_Image_alt_operator
   caption: Page_Meta_Image_caption_operator
+  cloudinary__public_id: Page_Meta_Image_cloudinary__public_id_operator
+  cloudinary__original_filename: Page_Meta_Image_cloudinary__original_filename_operator
+  cloudinary__format: Page_Meta_Image_cloudinary__format_operator
+  cloudinary__secure_url: Page_Meta_Image_cloudinary__secure_url_operator
+  cloudinary__resource_type: Page_Meta_Image_cloudinary__resource_type_operator
   updatedAt: Page_Meta_Image_updatedAt_operator
   createdAt: Page_Meta_Image_createdAt_operator
   url: Page_Meta_Image_url_operator
@@ -1522,6 +2027,61 @@ input Page_Meta_Image_caption_operator {
   not_equals: JSON
   like: JSON
   contains: JSON
+  exists: Boolean
+}
+
+input Page_Meta_Image_cloudinary__public_id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Page_Meta_Image_cloudinary__original_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Page_Meta_Image_cloudinary__format_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Page_Meta_Image_cloudinary__secure_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Page_Meta_Image_cloudinary__resource_type_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
   exists: Boolean
 }
 
@@ -1624,6 +2184,11 @@ input Page_Meta_Image_id_operator {
 input Page_Meta_Image_where_and {
   alt: Page_Meta_Image_alt_operator
   caption: Page_Meta_Image_caption_operator
+  cloudinary__public_id: Page_Meta_Image_cloudinary__public_id_operator
+  cloudinary__original_filename: Page_Meta_Image_cloudinary__original_filename_operator
+  cloudinary__format: Page_Meta_Image_cloudinary__format_operator
+  cloudinary__secure_url: Page_Meta_Image_cloudinary__secure_url_operator
+  cloudinary__resource_type: Page_Meta_Image_cloudinary__resource_type_operator
   updatedAt: Page_Meta_Image_updatedAt_operator
   createdAt: Page_Meta_Image_createdAt_operator
   url: Page_Meta_Image_url_operator
@@ -1640,6 +2205,11 @@ input Page_Meta_Image_where_and {
 input Page_Meta_Image_where_or {
   alt: Page_Meta_Image_alt_operator
   caption: Page_Meta_Image_caption_operator
+  cloudinary__public_id: Page_Meta_Image_cloudinary__public_id_operator
+  cloudinary__original_filename: Page_Meta_Image_cloudinary__original_filename_operator
+  cloudinary__format: Page_Meta_Image_cloudinary__format_operator
+  cloudinary__secure_url: Page_Meta_Image_cloudinary__secure_url_operator
+  cloudinary__resource_type: Page_Meta_Image_cloudinary__resource_type_operator
   updatedAt: Page_Meta_Image_updatedAt_operator
   createdAt: Page_Meta_Image_createdAt_operator
   url: Page_Meta_Image_url_operator
@@ -2727,6 +3297,11 @@ enum PageVersion_Version_Hero_Links_Link_type {
 input PageVersion_Version_Hero_Links_Link_Icon_where {
   alt: PageVersion_Version_Hero_Links_Link_Icon_alt_operator
   caption: PageVersion_Version_Hero_Links_Link_Icon_caption_operator
+  cloudinary__public_id: PageVersion_Version_Hero_Links_Link_Icon_cloudinary__public_id_operator
+  cloudinary__original_filename: PageVersion_Version_Hero_Links_Link_Icon_cloudinary__original_filename_operator
+  cloudinary__format: PageVersion_Version_Hero_Links_Link_Icon_cloudinary__format_operator
+  cloudinary__secure_url: PageVersion_Version_Hero_Links_Link_Icon_cloudinary__secure_url_operator
+  cloudinary__resource_type: PageVersion_Version_Hero_Links_Link_Icon_cloudinary__resource_type_operator
   updatedAt: PageVersion_Version_Hero_Links_Link_Icon_updatedAt_operator
   createdAt: PageVersion_Version_Hero_Links_Link_Icon_createdAt_operator
   url: PageVersion_Version_Hero_Links_Link_Icon_url_operator
@@ -2755,6 +3330,61 @@ input PageVersion_Version_Hero_Links_Link_Icon_caption_operator {
   not_equals: JSON
   like: JSON
   contains: JSON
+  exists: Boolean
+}
+
+input PageVersion_Version_Hero_Links_Link_Icon_cloudinary__public_id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input PageVersion_Version_Hero_Links_Link_Icon_cloudinary__original_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input PageVersion_Version_Hero_Links_Link_Icon_cloudinary__format_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input PageVersion_Version_Hero_Links_Link_Icon_cloudinary__secure_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input PageVersion_Version_Hero_Links_Link_Icon_cloudinary__resource_type_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
   exists: Boolean
 }
 
@@ -2857,6 +3487,11 @@ input PageVersion_Version_Hero_Links_Link_Icon_id_operator {
 input PageVersion_Version_Hero_Links_Link_Icon_where_and {
   alt: PageVersion_Version_Hero_Links_Link_Icon_alt_operator
   caption: PageVersion_Version_Hero_Links_Link_Icon_caption_operator
+  cloudinary__public_id: PageVersion_Version_Hero_Links_Link_Icon_cloudinary__public_id_operator
+  cloudinary__original_filename: PageVersion_Version_Hero_Links_Link_Icon_cloudinary__original_filename_operator
+  cloudinary__format: PageVersion_Version_Hero_Links_Link_Icon_cloudinary__format_operator
+  cloudinary__secure_url: PageVersion_Version_Hero_Links_Link_Icon_cloudinary__secure_url_operator
+  cloudinary__resource_type: PageVersion_Version_Hero_Links_Link_Icon_cloudinary__resource_type_operator
   updatedAt: PageVersion_Version_Hero_Links_Link_Icon_updatedAt_operator
   createdAt: PageVersion_Version_Hero_Links_Link_Icon_createdAt_operator
   url: PageVersion_Version_Hero_Links_Link_Icon_url_operator
@@ -2873,6 +3508,11 @@ input PageVersion_Version_Hero_Links_Link_Icon_where_and {
 input PageVersion_Version_Hero_Links_Link_Icon_where_or {
   alt: PageVersion_Version_Hero_Links_Link_Icon_alt_operator
   caption: PageVersion_Version_Hero_Links_Link_Icon_caption_operator
+  cloudinary__public_id: PageVersion_Version_Hero_Links_Link_Icon_cloudinary__public_id_operator
+  cloudinary__original_filename: PageVersion_Version_Hero_Links_Link_Icon_cloudinary__original_filename_operator
+  cloudinary__format: PageVersion_Version_Hero_Links_Link_Icon_cloudinary__format_operator
+  cloudinary__secure_url: PageVersion_Version_Hero_Links_Link_Icon_cloudinary__secure_url_operator
+  cloudinary__resource_type: PageVersion_Version_Hero_Links_Link_Icon_cloudinary__resource_type_operator
   updatedAt: PageVersion_Version_Hero_Links_Link_Icon_updatedAt_operator
   createdAt: PageVersion_Version_Hero_Links_Link_Icon_createdAt_operator
   url: PageVersion_Version_Hero_Links_Link_Icon_url_operator
@@ -2906,6 +3546,11 @@ enum PageVersion_Version_Hero_Links_Link_appearance {
 input PageVersion_Version_Hero_Media_where {
   alt: PageVersion_Version_Hero_Media_alt_operator
   caption: PageVersion_Version_Hero_Media_caption_operator
+  cloudinary__public_id: PageVersion_Version_Hero_Media_cloudinary__public_id_operator
+  cloudinary__original_filename: PageVersion_Version_Hero_Media_cloudinary__original_filename_operator
+  cloudinary__format: PageVersion_Version_Hero_Media_cloudinary__format_operator
+  cloudinary__secure_url: PageVersion_Version_Hero_Media_cloudinary__secure_url_operator
+  cloudinary__resource_type: PageVersion_Version_Hero_Media_cloudinary__resource_type_operator
   updatedAt: PageVersion_Version_Hero_Media_updatedAt_operator
   createdAt: PageVersion_Version_Hero_Media_createdAt_operator
   url: PageVersion_Version_Hero_Media_url_operator
@@ -2934,6 +3579,61 @@ input PageVersion_Version_Hero_Media_caption_operator {
   not_equals: JSON
   like: JSON
   contains: JSON
+  exists: Boolean
+}
+
+input PageVersion_Version_Hero_Media_cloudinary__public_id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input PageVersion_Version_Hero_Media_cloudinary__original_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input PageVersion_Version_Hero_Media_cloudinary__format_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input PageVersion_Version_Hero_Media_cloudinary__secure_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input PageVersion_Version_Hero_Media_cloudinary__resource_type_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
   exists: Boolean
 }
 
@@ -3036,6 +3736,11 @@ input PageVersion_Version_Hero_Media_id_operator {
 input PageVersion_Version_Hero_Media_where_and {
   alt: PageVersion_Version_Hero_Media_alt_operator
   caption: PageVersion_Version_Hero_Media_caption_operator
+  cloudinary__public_id: PageVersion_Version_Hero_Media_cloudinary__public_id_operator
+  cloudinary__original_filename: PageVersion_Version_Hero_Media_cloudinary__original_filename_operator
+  cloudinary__format: PageVersion_Version_Hero_Media_cloudinary__format_operator
+  cloudinary__secure_url: PageVersion_Version_Hero_Media_cloudinary__secure_url_operator
+  cloudinary__resource_type: PageVersion_Version_Hero_Media_cloudinary__resource_type_operator
   updatedAt: PageVersion_Version_Hero_Media_updatedAt_operator
   createdAt: PageVersion_Version_Hero_Media_createdAt_operator
   url: PageVersion_Version_Hero_Media_url_operator
@@ -3052,6 +3757,11 @@ input PageVersion_Version_Hero_Media_where_and {
 input PageVersion_Version_Hero_Media_where_or {
   alt: PageVersion_Version_Hero_Media_alt_operator
   caption: PageVersion_Version_Hero_Media_caption_operator
+  cloudinary__public_id: PageVersion_Version_Hero_Media_cloudinary__public_id_operator
+  cloudinary__original_filename: PageVersion_Version_Hero_Media_cloudinary__original_filename_operator
+  cloudinary__format: PageVersion_Version_Hero_Media_cloudinary__format_operator
+  cloudinary__secure_url: PageVersion_Version_Hero_Media_cloudinary__secure_url_operator
+  cloudinary__resource_type: PageVersion_Version_Hero_Media_cloudinary__resource_type_operator
   updatedAt: PageVersion_Version_Hero_Media_updatedAt_operator
   createdAt: PageVersion_Version_Hero_Media_createdAt_operator
   url: PageVersion_Version_Hero_Media_url_operator
@@ -3076,6 +3786,11 @@ type PageVersion_Version_Meta {
 input PageVersion_Version_Meta_Image_where {
   alt: PageVersion_Version_Meta_Image_alt_operator
   caption: PageVersion_Version_Meta_Image_caption_operator
+  cloudinary__public_id: PageVersion_Version_Meta_Image_cloudinary__public_id_operator
+  cloudinary__original_filename: PageVersion_Version_Meta_Image_cloudinary__original_filename_operator
+  cloudinary__format: PageVersion_Version_Meta_Image_cloudinary__format_operator
+  cloudinary__secure_url: PageVersion_Version_Meta_Image_cloudinary__secure_url_operator
+  cloudinary__resource_type: PageVersion_Version_Meta_Image_cloudinary__resource_type_operator
   updatedAt: PageVersion_Version_Meta_Image_updatedAt_operator
   createdAt: PageVersion_Version_Meta_Image_createdAt_operator
   url: PageVersion_Version_Meta_Image_url_operator
@@ -3104,6 +3819,61 @@ input PageVersion_Version_Meta_Image_caption_operator {
   not_equals: JSON
   like: JSON
   contains: JSON
+  exists: Boolean
+}
+
+input PageVersion_Version_Meta_Image_cloudinary__public_id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input PageVersion_Version_Meta_Image_cloudinary__original_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input PageVersion_Version_Meta_Image_cloudinary__format_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input PageVersion_Version_Meta_Image_cloudinary__secure_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input PageVersion_Version_Meta_Image_cloudinary__resource_type_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
   exists: Boolean
 }
 
@@ -3206,6 +3976,11 @@ input PageVersion_Version_Meta_Image_id_operator {
 input PageVersion_Version_Meta_Image_where_and {
   alt: PageVersion_Version_Meta_Image_alt_operator
   caption: PageVersion_Version_Meta_Image_caption_operator
+  cloudinary__public_id: PageVersion_Version_Meta_Image_cloudinary__public_id_operator
+  cloudinary__original_filename: PageVersion_Version_Meta_Image_cloudinary__original_filename_operator
+  cloudinary__format: PageVersion_Version_Meta_Image_cloudinary__format_operator
+  cloudinary__secure_url: PageVersion_Version_Meta_Image_cloudinary__secure_url_operator
+  cloudinary__resource_type: PageVersion_Version_Meta_Image_cloudinary__resource_type_operator
   updatedAt: PageVersion_Version_Meta_Image_updatedAt_operator
   createdAt: PageVersion_Version_Meta_Image_createdAt_operator
   url: PageVersion_Version_Meta_Image_url_operator
@@ -3222,6 +3997,11 @@ input PageVersion_Version_Meta_Image_where_and {
 input PageVersion_Version_Meta_Image_where_or {
   alt: PageVersion_Version_Meta_Image_alt_operator
   caption: PageVersion_Version_Meta_Image_caption_operator
+  cloudinary__public_id: PageVersion_Version_Meta_Image_cloudinary__public_id_operator
+  cloudinary__original_filename: PageVersion_Version_Meta_Image_cloudinary__original_filename_operator
+  cloudinary__format: PageVersion_Version_Meta_Image_cloudinary__format_operator
+  cloudinary__secure_url: PageVersion_Version_Meta_Image_cloudinary__secure_url_operator
+  cloudinary__resource_type: PageVersion_Version_Meta_Image_cloudinary__resource_type_operator
   updatedAt: PageVersion_Version_Meta_Image_updatedAt_operator
   createdAt: PageVersion_Version_Meta_Image_createdAt_operator
   url: PageVersion_Version_Meta_Image_url_operator
@@ -3610,6 +4390,7 @@ type Products {
 input Product_where {
   title: Product_title_operator
   publishedOn: Product_publishedOn_operator
+  ingredients: Product_ingredients_operator
   stripeProductID: Product_stripeProductID_operator
   priceJSON: Product_priceJSON_operator
   enablePaywall: Product_enablePaywall_operator
@@ -3647,6 +4428,14 @@ input Product_publishedOn_operator {
   less_than_equal: DateTime
   less_than: DateTime
   like: DateTime
+  exists: Boolean
+}
+
+input Product_ingredients_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
   exists: Boolean
 }
 
@@ -3791,6 +4580,7 @@ input Product_id_operator {
 input Product_where_and {
   title: Product_title_operator
   publishedOn: Product_publishedOn_operator
+  ingredients: Product_ingredients_operator
   stripeProductID: Product_stripeProductID_operator
   priceJSON: Product_priceJSON_operator
   enablePaywall: Product_enablePaywall_operator
@@ -3813,6 +4603,7 @@ input Product_where_and {
 input Product_where_or {
   title: Product_title_operator
   publishedOn: Product_publishedOn_operator
+  ingredients: Product_ingredients_operator
   stripeProductID: Product_stripeProductID_operator
   priceJSON: Product_priceJSON_operator
   enablePaywall: Product_enablePaywall_operator
@@ -3845,6 +4636,7 @@ type ProductsDocAccessFields {
   title: ProductsDocAccessFields_title
   publishedOn: ProductsDocAccessFields_publishedOn
   layout: ProductsDocAccessFields_layout
+  ingredients: ProductsDocAccessFields_ingredients
   stripeProductID: ProductsDocAccessFields_stripeProductID
   priceJSON: ProductsDocAccessFields_priceJSON
   enablePaywall: ProductsDocAccessFields_enablePaywall
@@ -3926,6 +4718,29 @@ type ProductsDocAccessFields_layout_Update {
 }
 
 type ProductsDocAccessFields_layout_Delete {
+  permission: Boolean!
+}
+
+type ProductsDocAccessFields_ingredients {
+  create: ProductsDocAccessFields_ingredients_Create
+  read: ProductsDocAccessFields_ingredients_Read
+  update: ProductsDocAccessFields_ingredients_Update
+  delete: ProductsDocAccessFields_ingredients_Delete
+}
+
+type ProductsDocAccessFields_ingredients_Create {
+  permission: Boolean!
+}
+
+type ProductsDocAccessFields_ingredients_Read {
+  permission: Boolean!
+}
+
+type ProductsDocAccessFields_ingredients_Update {
+  permission: Boolean!
+}
+
+type ProductsDocAccessFields_ingredients_Delete {
   permission: Boolean!
 }
 
@@ -4390,6 +5205,7 @@ type ProductVersion_Version {
   title: String
   publishedOn: DateTime
   layout: [ProductVersion_Version_Layout!]
+  ingredients: String
   stripeProductID: String
   priceJSON: String
   enablePaywall: Boolean
@@ -4418,6 +5234,11 @@ type ProductVersion_Version_Meta {
 input ProductVersion_Version_Meta_Image_where {
   alt: ProductVersion_Version_Meta_Image_alt_operator
   caption: ProductVersion_Version_Meta_Image_caption_operator
+  cloudinary__public_id: ProductVersion_Version_Meta_Image_cloudinary__public_id_operator
+  cloudinary__original_filename: ProductVersion_Version_Meta_Image_cloudinary__original_filename_operator
+  cloudinary__format: ProductVersion_Version_Meta_Image_cloudinary__format_operator
+  cloudinary__secure_url: ProductVersion_Version_Meta_Image_cloudinary__secure_url_operator
+  cloudinary__resource_type: ProductVersion_Version_Meta_Image_cloudinary__resource_type_operator
   updatedAt: ProductVersion_Version_Meta_Image_updatedAt_operator
   createdAt: ProductVersion_Version_Meta_Image_createdAt_operator
   url: ProductVersion_Version_Meta_Image_url_operator
@@ -4446,6 +5267,61 @@ input ProductVersion_Version_Meta_Image_caption_operator {
   not_equals: JSON
   like: JSON
   contains: JSON
+  exists: Boolean
+}
+
+input ProductVersion_Version_Meta_Image_cloudinary__public_id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input ProductVersion_Version_Meta_Image_cloudinary__original_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input ProductVersion_Version_Meta_Image_cloudinary__format_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input ProductVersion_Version_Meta_Image_cloudinary__secure_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input ProductVersion_Version_Meta_Image_cloudinary__resource_type_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
   exists: Boolean
 }
 
@@ -4548,6 +5424,11 @@ input ProductVersion_Version_Meta_Image_id_operator {
 input ProductVersion_Version_Meta_Image_where_and {
   alt: ProductVersion_Version_Meta_Image_alt_operator
   caption: ProductVersion_Version_Meta_Image_caption_operator
+  cloudinary__public_id: ProductVersion_Version_Meta_Image_cloudinary__public_id_operator
+  cloudinary__original_filename: ProductVersion_Version_Meta_Image_cloudinary__original_filename_operator
+  cloudinary__format: ProductVersion_Version_Meta_Image_cloudinary__format_operator
+  cloudinary__secure_url: ProductVersion_Version_Meta_Image_cloudinary__secure_url_operator
+  cloudinary__resource_type: ProductVersion_Version_Meta_Image_cloudinary__resource_type_operator
   updatedAt: ProductVersion_Version_Meta_Image_updatedAt_operator
   createdAt: ProductVersion_Version_Meta_Image_createdAt_operator
   url: ProductVersion_Version_Meta_Image_url_operator
@@ -4564,6 +5445,11 @@ input ProductVersion_Version_Meta_Image_where_and {
 input ProductVersion_Version_Meta_Image_where_or {
   alt: ProductVersion_Version_Meta_Image_alt_operator
   caption: ProductVersion_Version_Meta_Image_caption_operator
+  cloudinary__public_id: ProductVersion_Version_Meta_Image_cloudinary__public_id_operator
+  cloudinary__original_filename: ProductVersion_Version_Meta_Image_cloudinary__original_filename_operator
+  cloudinary__format: ProductVersion_Version_Meta_Image_cloudinary__format_operator
+  cloudinary__secure_url: ProductVersion_Version_Meta_Image_cloudinary__secure_url_operator
+  cloudinary__resource_type: ProductVersion_Version_Meta_Image_cloudinary__resource_type_operator
   updatedAt: ProductVersion_Version_Meta_Image_updatedAt_operator
   createdAt: ProductVersion_Version_Meta_Image_createdAt_operator
   url: ProductVersion_Version_Meta_Image_url_operator
@@ -4600,6 +5486,7 @@ input versionsProduct_where {
   parent: versionsProduct_parent_operator
   version__title: versionsProduct_version__title_operator
   version__publishedOn: versionsProduct_version__publishedOn_operator
+  version__ingredients: versionsProduct_version__ingredients_operator
   version__stripeProductID: versionsProduct_version__stripeProductID_operator
   version__priceJSON: versionsProduct_version__priceJSON_operator
   version__enablePaywall: versionsProduct_version__enablePaywall_operator
@@ -4649,6 +5536,14 @@ input versionsProduct_version__publishedOn_operator {
   less_than_equal: DateTime
   less_than: DateTime
   like: DateTime
+  exists: Boolean
+}
+
+input versionsProduct_version__ingredients_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
   exists: Boolean
 }
 
@@ -4822,6 +5717,7 @@ input versionsProduct_where_and {
   parent: versionsProduct_parent_operator
   version__title: versionsProduct_version__title_operator
   version__publishedOn: versionsProduct_version__publishedOn_operator
+  version__ingredients: versionsProduct_version__ingredients_operator
   version__stripeProductID: versionsProduct_version__stripeProductID_operator
   version__priceJSON: versionsProduct_version__priceJSON_operator
   version__enablePaywall: versionsProduct_version__enablePaywall_operator
@@ -4848,6 +5744,7 @@ input versionsProduct_where_or {
   parent: versionsProduct_parent_operator
   version__title: versionsProduct_version__title_operator
   version__publishedOn: versionsProduct_version__publishedOn_operator
+  version__ingredients: versionsProduct_version__ingredients_operator
   version__stripeProductID: versionsProduct_version__stripeProductID_operator
   version__priceJSON: versionsProduct_version__priceJSON_operator
   version__enablePaywall: versionsProduct_version__enablePaywall_operator
@@ -5379,6 +6276,11 @@ type allMedia {
 input Media_where {
   alt: Media_alt_operator
   caption: Media_caption_operator
+  cloudinary__public_id: Media_cloudinary__public_id_operator
+  cloudinary__original_filename: Media_cloudinary__original_filename_operator
+  cloudinary__format: Media_cloudinary__format_operator
+  cloudinary__secure_url: Media_cloudinary__secure_url_operator
+  cloudinary__resource_type: Media_cloudinary__resource_type_operator
   updatedAt: Media_updatedAt_operator
   createdAt: Media_createdAt_operator
   url: Media_url_operator
@@ -5407,6 +6309,61 @@ input Media_caption_operator {
   not_equals: JSON
   like: JSON
   contains: JSON
+  exists: Boolean
+}
+
+input Media_cloudinary__public_id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Media_cloudinary__original_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Media_cloudinary__format_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Media_cloudinary__secure_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Media_cloudinary__resource_type_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
   exists: Boolean
 }
 
@@ -5509,6 +6466,11 @@ input Media_id_operator {
 input Media_where_and {
   alt: Media_alt_operator
   caption: Media_caption_operator
+  cloudinary__public_id: Media_cloudinary__public_id_operator
+  cloudinary__original_filename: Media_cloudinary__original_filename_operator
+  cloudinary__format: Media_cloudinary__format_operator
+  cloudinary__secure_url: Media_cloudinary__secure_url_operator
+  cloudinary__resource_type: Media_cloudinary__resource_type_operator
   updatedAt: Media_updatedAt_operator
   createdAt: Media_createdAt_operator
   url: Media_url_operator
@@ -5525,6 +6487,11 @@ input Media_where_and {
 input Media_where_or {
   alt: Media_alt_operator
   caption: Media_caption_operator
+  cloudinary__public_id: Media_cloudinary__public_id_operator
+  cloudinary__original_filename: Media_cloudinary__original_filename_operator
+  cloudinary__format: Media_cloudinary__format_operator
+  cloudinary__secure_url: Media_cloudinary__secure_url_operator
+  cloudinary__resource_type: Media_cloudinary__resource_type_operator
   updatedAt: Media_updatedAt_operator
   createdAt: Media_createdAt_operator
   url: Media_url_operator
@@ -5549,6 +6516,7 @@ type mediaDocAccess {
 type MediaDocAccessFields {
   alt: MediaDocAccessFields_alt
   caption: MediaDocAccessFields_caption
+  cloudinary: MediaDocAccessFields_cloudinary
   updatedAt: MediaDocAccessFields_updatedAt
   createdAt: MediaDocAccessFields_createdAt
   url: MediaDocAccessFields_url
@@ -5602,6 +6570,153 @@ type MediaDocAccessFields_caption_Update {
 }
 
 type MediaDocAccessFields_caption_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_cloudinary {
+  create: MediaDocAccessFields_cloudinary_Create
+  read: MediaDocAccessFields_cloudinary_Read
+  update: MediaDocAccessFields_cloudinary_Update
+  delete: MediaDocAccessFields_cloudinary_Delete
+  fields: MediaDocAccessFields_cloudinary_Fields
+}
+
+type MediaDocAccessFields_cloudinary_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_cloudinary_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_cloudinary_Update {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_cloudinary_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_cloudinary_Fields {
+  public_id: MediaDocAccessFields_cloudinary_public_id
+  original_filename: MediaDocAccessFields_cloudinary_original_filename
+  format: MediaDocAccessFields_cloudinary_format
+  secure_url: MediaDocAccessFields_cloudinary_secure_url
+  resource_type: MediaDocAccessFields_cloudinary_resource_type
+}
+
+type MediaDocAccessFields_cloudinary_public_id {
+  create: MediaDocAccessFields_cloudinary_public_id_Create
+  read: MediaDocAccessFields_cloudinary_public_id_Read
+  update: MediaDocAccessFields_cloudinary_public_id_Update
+  delete: MediaDocAccessFields_cloudinary_public_id_Delete
+}
+
+type MediaDocAccessFields_cloudinary_public_id_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_cloudinary_public_id_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_cloudinary_public_id_Update {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_cloudinary_public_id_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_cloudinary_original_filename {
+  create: MediaDocAccessFields_cloudinary_original_filename_Create
+  read: MediaDocAccessFields_cloudinary_original_filename_Read
+  update: MediaDocAccessFields_cloudinary_original_filename_Update
+  delete: MediaDocAccessFields_cloudinary_original_filename_Delete
+}
+
+type MediaDocAccessFields_cloudinary_original_filename_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_cloudinary_original_filename_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_cloudinary_original_filename_Update {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_cloudinary_original_filename_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_cloudinary_format {
+  create: MediaDocAccessFields_cloudinary_format_Create
+  read: MediaDocAccessFields_cloudinary_format_Read
+  update: MediaDocAccessFields_cloudinary_format_Update
+  delete: MediaDocAccessFields_cloudinary_format_Delete
+}
+
+type MediaDocAccessFields_cloudinary_format_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_cloudinary_format_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_cloudinary_format_Update {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_cloudinary_format_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_cloudinary_secure_url {
+  create: MediaDocAccessFields_cloudinary_secure_url_Create
+  read: MediaDocAccessFields_cloudinary_secure_url_Read
+  update: MediaDocAccessFields_cloudinary_secure_url_Update
+  delete: MediaDocAccessFields_cloudinary_secure_url_Delete
+}
+
+type MediaDocAccessFields_cloudinary_secure_url_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_cloudinary_secure_url_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_cloudinary_secure_url_Update {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_cloudinary_secure_url_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_cloudinary_resource_type {
+  create: MediaDocAccessFields_cloudinary_resource_type_Create
+  read: MediaDocAccessFields_cloudinary_resource_type_Read
+  update: MediaDocAccessFields_cloudinary_resource_type_Update
+  delete: MediaDocAccessFields_cloudinary_resource_type_Delete
+}
+
+type MediaDocAccessFields_cloudinary_resource_type_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_cloudinary_resource_type_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_cloudinary_resource_type_Update {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_cloudinary_resource_type_Delete {
   permission: Boolean!
 }
 
@@ -7586,6 +8701,11 @@ enum Header_NavItems_Link_type {
 input Header_NavItems_Link_Icon_where {
   alt: Header_NavItems_Link_Icon_alt_operator
   caption: Header_NavItems_Link_Icon_caption_operator
+  cloudinary__public_id: Header_NavItems_Link_Icon_cloudinary__public_id_operator
+  cloudinary__original_filename: Header_NavItems_Link_Icon_cloudinary__original_filename_operator
+  cloudinary__format: Header_NavItems_Link_Icon_cloudinary__format_operator
+  cloudinary__secure_url: Header_NavItems_Link_Icon_cloudinary__secure_url_operator
+  cloudinary__resource_type: Header_NavItems_Link_Icon_cloudinary__resource_type_operator
   updatedAt: Header_NavItems_Link_Icon_updatedAt_operator
   createdAt: Header_NavItems_Link_Icon_createdAt_operator
   url: Header_NavItems_Link_Icon_url_operator
@@ -7614,6 +8734,61 @@ input Header_NavItems_Link_Icon_caption_operator {
   not_equals: JSON
   like: JSON
   contains: JSON
+  exists: Boolean
+}
+
+input Header_NavItems_Link_Icon_cloudinary__public_id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Header_NavItems_Link_Icon_cloudinary__original_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Header_NavItems_Link_Icon_cloudinary__format_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Header_NavItems_Link_Icon_cloudinary__secure_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Header_NavItems_Link_Icon_cloudinary__resource_type_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
   exists: Boolean
 }
 
@@ -7716,6 +8891,11 @@ input Header_NavItems_Link_Icon_id_operator {
 input Header_NavItems_Link_Icon_where_and {
   alt: Header_NavItems_Link_Icon_alt_operator
   caption: Header_NavItems_Link_Icon_caption_operator
+  cloudinary__public_id: Header_NavItems_Link_Icon_cloudinary__public_id_operator
+  cloudinary__original_filename: Header_NavItems_Link_Icon_cloudinary__original_filename_operator
+  cloudinary__format: Header_NavItems_Link_Icon_cloudinary__format_operator
+  cloudinary__secure_url: Header_NavItems_Link_Icon_cloudinary__secure_url_operator
+  cloudinary__resource_type: Header_NavItems_Link_Icon_cloudinary__resource_type_operator
   updatedAt: Header_NavItems_Link_Icon_updatedAt_operator
   createdAt: Header_NavItems_Link_Icon_createdAt_operator
   url: Header_NavItems_Link_Icon_url_operator
@@ -7732,6 +8912,11 @@ input Header_NavItems_Link_Icon_where_and {
 input Header_NavItems_Link_Icon_where_or {
   alt: Header_NavItems_Link_Icon_alt_operator
   caption: Header_NavItems_Link_Icon_caption_operator
+  cloudinary__public_id: Header_NavItems_Link_Icon_cloudinary__public_id_operator
+  cloudinary__original_filename: Header_NavItems_Link_Icon_cloudinary__original_filename_operator
+  cloudinary__format: Header_NavItems_Link_Icon_cloudinary__format_operator
+  cloudinary__secure_url: Header_NavItems_Link_Icon_cloudinary__secure_url_operator
+  cloudinary__resource_type: Header_NavItems_Link_Icon_cloudinary__resource_type_operator
   updatedAt: Header_NavItems_Link_Icon_updatedAt_operator
   createdAt: Header_NavItems_Link_Icon_createdAt_operator
   url: Header_NavItems_Link_Icon_url_operator
@@ -8076,6 +9261,11 @@ enum Footer_NavItems_Link_type {
 input Footer_NavItems_Link_Icon_where {
   alt: Footer_NavItems_Link_Icon_alt_operator
   caption: Footer_NavItems_Link_Icon_caption_operator
+  cloudinary__public_id: Footer_NavItems_Link_Icon_cloudinary__public_id_operator
+  cloudinary__original_filename: Footer_NavItems_Link_Icon_cloudinary__original_filename_operator
+  cloudinary__format: Footer_NavItems_Link_Icon_cloudinary__format_operator
+  cloudinary__secure_url: Footer_NavItems_Link_Icon_cloudinary__secure_url_operator
+  cloudinary__resource_type: Footer_NavItems_Link_Icon_cloudinary__resource_type_operator
   updatedAt: Footer_NavItems_Link_Icon_updatedAt_operator
   createdAt: Footer_NavItems_Link_Icon_createdAt_operator
   url: Footer_NavItems_Link_Icon_url_operator
@@ -8104,6 +9294,61 @@ input Footer_NavItems_Link_Icon_caption_operator {
   not_equals: JSON
   like: JSON
   contains: JSON
+  exists: Boolean
+}
+
+input Footer_NavItems_Link_Icon_cloudinary__public_id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Footer_NavItems_Link_Icon_cloudinary__original_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Footer_NavItems_Link_Icon_cloudinary__format_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Footer_NavItems_Link_Icon_cloudinary__secure_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Footer_NavItems_Link_Icon_cloudinary__resource_type_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
   exists: Boolean
 }
 
@@ -8206,6 +9451,11 @@ input Footer_NavItems_Link_Icon_id_operator {
 input Footer_NavItems_Link_Icon_where_and {
   alt: Footer_NavItems_Link_Icon_alt_operator
   caption: Footer_NavItems_Link_Icon_caption_operator
+  cloudinary__public_id: Footer_NavItems_Link_Icon_cloudinary__public_id_operator
+  cloudinary__original_filename: Footer_NavItems_Link_Icon_cloudinary__original_filename_operator
+  cloudinary__format: Footer_NavItems_Link_Icon_cloudinary__format_operator
+  cloudinary__secure_url: Footer_NavItems_Link_Icon_cloudinary__secure_url_operator
+  cloudinary__resource_type: Footer_NavItems_Link_Icon_cloudinary__resource_type_operator
   updatedAt: Footer_NavItems_Link_Icon_updatedAt_operator
   createdAt: Footer_NavItems_Link_Icon_createdAt_operator
   url: Footer_NavItems_Link_Icon_url_operator
@@ -8222,6 +9472,11 @@ input Footer_NavItems_Link_Icon_where_and {
 input Footer_NavItems_Link_Icon_where_or {
   alt: Footer_NavItems_Link_Icon_alt_operator
   caption: Footer_NavItems_Link_Icon_caption_operator
+  cloudinary__public_id: Footer_NavItems_Link_Icon_cloudinary__public_id_operator
+  cloudinary__original_filename: Footer_NavItems_Link_Icon_cloudinary__original_filename_operator
+  cloudinary__format: Footer_NavItems_Link_Icon_cloudinary__format_operator
+  cloudinary__secure_url: Footer_NavItems_Link_Icon_cloudinary__secure_url_operator
+  cloudinary__resource_type: Footer_NavItems_Link_Icon_cloudinary__resource_type_operator
   updatedAt: Footer_NavItems_Link_Icon_updatedAt_operator
   createdAt: Footer_NavItems_Link_Icon_createdAt_operator
   url: Footer_NavItems_Link_Icon_url_operator
@@ -9290,6 +10545,7 @@ type ProductsFields {
   title: ProductsFields_title
   publishedOn: ProductsFields_publishedOn
   layout: ProductsFields_layout
+  ingredients: ProductsFields_ingredients
   stripeProductID: ProductsFields_stripeProductID
   priceJSON: ProductsFields_priceJSON
   enablePaywall: ProductsFields_enablePaywall
@@ -9371,6 +10627,29 @@ type ProductsFields_layout_Update {
 }
 
 type ProductsFields_layout_Delete {
+  permission: Boolean!
+}
+
+type ProductsFields_ingredients {
+  create: ProductsFields_ingredients_Create
+  read: ProductsFields_ingredients_Read
+  update: ProductsFields_ingredients_Update
+  delete: ProductsFields_ingredients_Delete
+}
+
+type ProductsFields_ingredients_Create {
+  permission: Boolean!
+}
+
+type ProductsFields_ingredients_Read {
+  permission: Boolean!
+}
+
+type ProductsFields_ingredients_Update {
+  permission: Boolean!
+}
+
+type ProductsFields_ingredients_Delete {
   permission: Boolean!
 }
 
@@ -10108,6 +11387,7 @@ type mediaAccess {
 type MediaFields {
   alt: MediaFields_alt
   caption: MediaFields_caption
+  cloudinary: MediaFields_cloudinary
   updatedAt: MediaFields_updatedAt
   createdAt: MediaFields_createdAt
   url: MediaFields_url
@@ -10161,6 +11441,153 @@ type MediaFields_caption_Update {
 }
 
 type MediaFields_caption_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_cloudinary {
+  create: MediaFields_cloudinary_Create
+  read: MediaFields_cloudinary_Read
+  update: MediaFields_cloudinary_Update
+  delete: MediaFields_cloudinary_Delete
+  fields: MediaFields_cloudinary_Fields
+}
+
+type MediaFields_cloudinary_Create {
+  permission: Boolean!
+}
+
+type MediaFields_cloudinary_Read {
+  permission: Boolean!
+}
+
+type MediaFields_cloudinary_Update {
+  permission: Boolean!
+}
+
+type MediaFields_cloudinary_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_cloudinary_Fields {
+  public_id: MediaFields_cloudinary_public_id
+  original_filename: MediaFields_cloudinary_original_filename
+  format: MediaFields_cloudinary_format
+  secure_url: MediaFields_cloudinary_secure_url
+  resource_type: MediaFields_cloudinary_resource_type
+}
+
+type MediaFields_cloudinary_public_id {
+  create: MediaFields_cloudinary_public_id_Create
+  read: MediaFields_cloudinary_public_id_Read
+  update: MediaFields_cloudinary_public_id_Update
+  delete: MediaFields_cloudinary_public_id_Delete
+}
+
+type MediaFields_cloudinary_public_id_Create {
+  permission: Boolean!
+}
+
+type MediaFields_cloudinary_public_id_Read {
+  permission: Boolean!
+}
+
+type MediaFields_cloudinary_public_id_Update {
+  permission: Boolean!
+}
+
+type MediaFields_cloudinary_public_id_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_cloudinary_original_filename {
+  create: MediaFields_cloudinary_original_filename_Create
+  read: MediaFields_cloudinary_original_filename_Read
+  update: MediaFields_cloudinary_original_filename_Update
+  delete: MediaFields_cloudinary_original_filename_Delete
+}
+
+type MediaFields_cloudinary_original_filename_Create {
+  permission: Boolean!
+}
+
+type MediaFields_cloudinary_original_filename_Read {
+  permission: Boolean!
+}
+
+type MediaFields_cloudinary_original_filename_Update {
+  permission: Boolean!
+}
+
+type MediaFields_cloudinary_original_filename_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_cloudinary_format {
+  create: MediaFields_cloudinary_format_Create
+  read: MediaFields_cloudinary_format_Read
+  update: MediaFields_cloudinary_format_Update
+  delete: MediaFields_cloudinary_format_Delete
+}
+
+type MediaFields_cloudinary_format_Create {
+  permission: Boolean!
+}
+
+type MediaFields_cloudinary_format_Read {
+  permission: Boolean!
+}
+
+type MediaFields_cloudinary_format_Update {
+  permission: Boolean!
+}
+
+type MediaFields_cloudinary_format_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_cloudinary_secure_url {
+  create: MediaFields_cloudinary_secure_url_Create
+  read: MediaFields_cloudinary_secure_url_Read
+  update: MediaFields_cloudinary_secure_url_Update
+  delete: MediaFields_cloudinary_secure_url_Delete
+}
+
+type MediaFields_cloudinary_secure_url_Create {
+  permission: Boolean!
+}
+
+type MediaFields_cloudinary_secure_url_Read {
+  permission: Boolean!
+}
+
+type MediaFields_cloudinary_secure_url_Update {
+  permission: Boolean!
+}
+
+type MediaFields_cloudinary_secure_url_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_cloudinary_resource_type {
+  create: MediaFields_cloudinary_resource_type_Create
+  read: MediaFields_cloudinary_resource_type_Read
+  update: MediaFields_cloudinary_resource_type_Update
+  delete: MediaFields_cloudinary_resource_type_Delete
+}
+
+type MediaFields_cloudinary_resource_type_Create {
+  permission: Boolean!
+}
+
+type MediaFields_cloudinary_resource_type_Read {
+  permission: Boolean!
+}
+
+type MediaFields_cloudinary_resource_type_Update {
+  permission: Boolean!
+}
+
+type MediaFields_cloudinary_resource_type_Delete {
   permission: Boolean!
 }
 
@@ -12254,6 +13681,7 @@ input mutationProductInput {
   title: String!
   publishedOn: String
   layout: JSON
+  ingredients: String
   stripeProductID: String
   priceJSON: String
   enablePaywall: Boolean
@@ -12284,6 +13712,7 @@ input mutationProductUpdateInput {
   title: String
   publishedOn: String
   layout: JSON
+  ingredients: String
   stripeProductID: String
   priceJSON: String
   enablePaywall: Boolean
@@ -12345,6 +13774,7 @@ input mutationOrderUpdate_ItemsInput {
 input mutationMediaInput {
   alt: String!
   caption: JSON
+  cloudinary: mutationMedia_CloudinaryInput
   updatedAt: String
   createdAt: String
   url: String
@@ -12355,9 +13785,18 @@ input mutationMediaInput {
   height: Float
 }
 
+input mutationMedia_CloudinaryInput {
+  public_id: String
+  original_filename: String
+  format: String
+  secure_url: String
+  resource_type: String
+}
+
 input mutationMediaUpdateInput {
   alt: String
   caption: JSON
+  cloudinary: mutationMediaUpdate_CloudinaryInput
   updatedAt: String
   createdAt: String
   url: String
@@ -12366,6 +13805,14 @@ input mutationMediaUpdateInput {
   filesize: Float
   width: Float
   height: Float
+}
+
+input mutationMediaUpdate_CloudinaryInput {
+  public_id: String
+  original_filename: String
+  format: String
+  secure_url: String
+  resource_type: String
 }
 
 input mutationCategoryInput {

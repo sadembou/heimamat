@@ -9,8 +9,11 @@ import { Button } from '../../../_components/Button'
 import { Input } from '../../../_components/Input'
 import { Message } from '../../../_components/Message'
 import { useAuth } from '../../../_providers/Auth'
+import enMessage from '../../../messages/en.json'
+import foMessage from '../../../messages/fo.json'
 
 import classes from './index.module.scss'
+import { userLanguage } from '../../../_providers/Language'
 
 type FormData = {
   email: string
@@ -24,6 +27,7 @@ const LoginForm: React.FC = () => {
   const { login } = useAuth()
   const router = useRouter()
   const [error, setError] = React.useState<string | null>(null)
+  const {languageChoice} = userLanguage();
 
   const {
     register,

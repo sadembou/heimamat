@@ -16,6 +16,8 @@ const nextConfig = {
   async headers() {
     const headers = []
 
+
+
     // Prevent search engines from indexing the site if it is not live
     // This is useful for staging environments before they are ready to go live
     // To allow robots to crawl the site, use the `NEXT_PUBLIC_IS_LIVE` env variable
@@ -44,6 +46,17 @@ const nextConfig = {
         },
       ],
     })
+
+    
+    headers.push({
+      source: '/(.*)',
+      headers: [
+        {
+          key: 'Content-Security-Policy',
+          value: "img-src 'self' https://*.stripe.com https://raw.githubusercontent.com https://res.cloudinary.com;",
+        },
+      ],
+    },)
 
     return headers
   },

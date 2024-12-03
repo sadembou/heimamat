@@ -59,10 +59,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setUser(data?.loginUser?.user)
         setStatus('loggedIn')
       } else {
-        throw new Error('Invalid login')
+        //throw new Error('Invalid login')
+        console.error('Invalid login')
       }
     } catch (e) {
-      throw new Error('An error occurred while attempting to login.')
+      //throw new Error('An error occurred while attempting to login.')
+      console.error('An error occurred while attempting to login.')
     }
   }, [])
 
@@ -87,10 +89,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setStatus('loggedIn')
         return user
       }
-
-      throw new Error('Invalid login')
+      //throw new Error('Invalid login')
+      console.error('Invalid login')
     } catch (e) {
-      throw new Error('An error occurred while attempting to login.')
+      //throw new Error('An error occurred while attempting to login.')
+      console.error('An error occurred while attempting to login.')
     }
   }, [])
 
@@ -108,10 +111,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setUser(null)
         setStatus('loggedOut')
       } else {
-        throw new Error('An error occurred while attempting to logout.')
+        //throw new Error('An error occurred while attempting to logout.')
       }
     } catch (e) {
-      throw new Error('An error occurred while attempting to logout.')
+      //throw new Error('An error occurred while attempting to logout.')
     }
   }, [])
 
@@ -135,10 +138,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         }
       } catch (e) {
         setUser(null)
-        throw new Error('An error occurred while fetching your account.')
+        //throw new Error('An error occurred while fetching your account.')
+        console.error('An error occurred while fetching your account.')
       }
     }
-
     fetchMe()
   }, [])
 
@@ -163,7 +166,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         throw new Error('Invalid login')
       }
     } catch (e) {
-      throw new Error('An error occurred while attempting to login.')
+      //throw new Error('An error occurred while attempting to login.')
+      console.error('An error occurred while attempting to login.')
     }
   }, [])
 
@@ -188,10 +192,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setUser(data?.loginUser?.user)
         setStatus(data?.loginUser?.user ? 'loggedIn' : undefined)
       } else {
-        throw new Error('Invalid login')
+        //throw new Error('Invalid login')
+        console.error('Invalid login')
       }
     } catch (e) {
-      throw new Error('An error occurred while attempting to login.')
+      //throw new Error('An error occurred while attempting to login.')
+      console.error('An error occurred while attempting to login.')
     }
   }, [])
 

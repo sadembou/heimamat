@@ -50,3 +50,15 @@
 .error {
   margin-top: calc(var(--block-padding) - var(--base));
 }
+
+.cashPayment {
+  text-align: center;
+  gap: 0.5rem;
+  font-weight: bolder;
+}
+
+.creditCard {
+  display: inline-flex;
+  gap: 0.5rem;
+  background-color: var(--color-warning-850);
+}

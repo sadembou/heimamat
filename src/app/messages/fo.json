@@ -1,0 +1,11 @@
+{
+    "login":{
+        "welcome":"Vælkomin",
+        "login":"INNRITAN",
+        "emailLabel":"Teldupost",
+        "passwordLabel":"Loyniorð",
+        "createAccount":"Stovna konto",
+        "forgotPassword":"Gloymt loyniorð?",
+        "loginButton":"Rita inn"
+    }
+}

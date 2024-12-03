@@ -125,9 +125,11 @@ export interface Page {
             blockType: 'mediaBlock';
           }
         | {
-            introContent: {
-              [k: string]: unknown;
-            }[];
+            introContent?:
+              | {
+                  [k: string]: unknown;
+                }[]
+              | null;
             populateBy?: ('collection' | 'selection') | null;
             relationTo?: 'products' | null;
             categories?: (string | Category)[] | null;
@@ -169,6 +171,13 @@ export interface Media {
         [k: string]: unknown;
       }[]
     | null;
+  cloudinary?: {
+    public_id?: string | null;
+    original_filename?: string | null;
+    format?: string | null;
+    secure_url?: string | null;
+    resource_type?: string | null;
+  };
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -263,9 +272,11 @@ export interface Product {
             blockType: 'mediaBlock';
           }
         | {
-            introContent: {
-              [k: string]: unknown;
-            }[];
+            introContent?:
+              | {
+                  [k: string]: unknown;
+                }[]
+              | null;
             populateBy?: ('collection' | 'selection') | null;
             relationTo?: 'products' | null;
             categories?: (string | Category)[] | null;
@@ -289,6 +300,7 @@ export interface Product {
           }
       )[]
     | null;
+  ingredients?: string | null;
   stripeProductID?: string | null;
   priceJSON?: string | null;
   enablePaywall?: boolean | null;
@@ -357,9 +369,11 @@ export interface Product {
             blockType: 'mediaBlock';
           }
         | {
-            introContent: {
-              [k: string]: unknown;
-            }[];
+            introContent?:
+              | {
+                  [k: string]: unknown;
+                }[]
+              | null;
             populateBy?: ('collection' | 'selection') | null;
             relationTo?: 'products' | null;
             categories?: (string | Category)[] | null;

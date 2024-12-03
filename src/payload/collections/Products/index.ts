@@ -75,12 +75,22 @@ const Products: CollectionConfig = {
               name: 'layout',
               type: 'blocks',
               blocks: [CallToAction, Content, MediaBlock, Archive],
+              required:false
             },
           ],
         },
         {
           label: 'Product Details',
           fields: [
+            {
+              name: 'ingredients',
+              label: 'Ingedrients',
+              type: 'textarea',
+              admin: {
+                rows: 20,
+              },
+              localized:true
+            },
             {
               name: 'stripeProductID',
               label: 'Stripe Product',
@@ -117,6 +127,16 @@ const Products: CollectionConfig = {
             },
           ],
         },
+        /*{
+          label: 'Custom Product Details',
+          fields: [
+            {
+              name: 'price',
+              label: 'Product price',
+              type: 'number',
+            },
+          ],
+        },*/
       ],
     },
     {

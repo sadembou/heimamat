@@ -20,7 +20,13 @@
   display: grid;
   gap: 30px;
   padding: 0;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  //width: 100%;
+
+  @include mid-break {
+    //width: 80%;
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   @include small-break {
     grid-template-columns: 1fr;

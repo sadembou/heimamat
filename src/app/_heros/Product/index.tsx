@@ -1,3 +1,5 @@
+'use client'
+
 import React, { Fragment } from 'react'
 
 import { Product } from '../../../payload/payload-types'
@@ -7,6 +9,7 @@ import { Media } from '../../_components/Media'
 import { Price } from '../../_components/Price'
 
 import classes from './index.module.scss'
+import { userLanguage } from '../../_providers/Language'
 
 export const ProductHero: React.FC<{
   product: Product
@@ -14,10 +17,15 @@ export const ProductHero: React.FC<{
   const {
     id,
     stripeProductID,
+    ingredients,
     title,
     categories,
     meta: { image: metaImage, description } = {},
   } = product
+
+  const ingredientList = ingredients?.split(',')
+  const {languageChoice : lang} = userLanguage();
+  console.log(lang)
 
   return (
     <Fragment>
@@ -79,6 +87,13 @@ export const ProductHero: React.FC<{
             <p> {description} </p>
           </div>
           <AddToCartButton product={product} className={classes.addToCartButton} />
+          <br/>
+          {ingredientList && <div style={{display:'flex', flexDirection:'column', marginTop:'1rem'}}>
+            <h6>{`${lang==="fo"?"Tilfar":"Ingredients"}`}</h6>
+            {ingredientList.map((ingredient, index)=>(
+              <span style={{fontSize:'13px'}} key={index}> {ingredient} </span>
+            ))}
+          </div>}
           </div>
       </Gutter>
     </Fragment>

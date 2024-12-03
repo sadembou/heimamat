@@ -10,6 +10,7 @@ import { InitTheme } from './_providers/Theme/InitTheme'
 import { mergeOpenGraph } from './_utilities/mergeOpenGraph'
 
 import './_css/app.scss'
+import LanguageSelector from './_components/LanguageSwitcher'
 
 const nunito = Nunito({
   subsets: ['latin'],
@@ -30,7 +31,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <AdminBar />
           {/* @ts-expect-error */}
           <Header />
-          {/*<LanguageSelector/>*/}
           <main className='main'>
             {children}
           </main>

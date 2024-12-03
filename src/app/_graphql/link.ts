@@ -10,7 +10,9 @@ export const LINK_FIELDS = ({ disableAppearance, disableLabel }: Args = {}): str
   newTab
   url
   icon {
-    url
+    cloudinary{
+      secure_url
+    }
   }
   reference {
     relationTo

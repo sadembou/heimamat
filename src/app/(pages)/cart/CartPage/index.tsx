@@ -76,6 +76,7 @@ export const CartPage: React.FC<{
                         const metaImage = meta?.image
                         return (
                           <CartItem
+                            key={`${index}_${title}`}
                             product={product}
                             title={title}
                             metaImage={metaImage}

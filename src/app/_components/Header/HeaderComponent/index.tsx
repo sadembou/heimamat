@@ -8,6 +8,7 @@ import Image from 'next/image'
 import { HeaderNav } from '../Nav'
 import { noHeaderFooterUrls } from '../../../constants'
 import { usePathname } from 'next/navigation'
+import { HeaderMobileNav as NavBar } from '../MobileNav'
 
 const HeaderComponent = ({ header }: { header:Header }) => {
     const pathName = usePathname();
@@ -18,7 +19,7 @@ const HeaderComponent = ({ header }: { header:Header }) => {
             <Link href='/'>
               <Image src='/logo_text_black_v2.png' alt='logo' width={170} height={50} />
             </Link>
-            <HeaderNav header={header}/>
+            <NavBar header={header}/>
         </Gutter>
     </nav>
   )

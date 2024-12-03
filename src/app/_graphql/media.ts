@@ -5,6 +5,9 @@ width
 height
 alt
 caption
+cloudinary{
+  secure_url
+}
 `
 
 export const MEDIA = `media {

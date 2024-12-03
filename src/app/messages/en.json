@@ -1,0 +1,11 @@
+{
+    "login":{
+        "welcome":"Welcome",
+        "login":"Login here",
+        "emailLabel":"Email Address",
+        "passwordLabel":"Password",
+        "createAccount":"Create an account",
+        "forgotPassword":"Recover your Password",
+        "loginButton":"Login"
+    }
+}

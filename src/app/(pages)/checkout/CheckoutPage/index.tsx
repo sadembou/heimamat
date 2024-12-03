@@ -1,6 +1,6 @@
 'use client'
 
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
 import Link from 'next/link'
@@ -17,9 +17,14 @@ import { CheckoutForm } from '../CheckoutForm'
 import { CheckoutItem } from '../CheckoutItem'
 
 import classes from './index.module.scss'
+import { Gutter } from '../../../_components/Gutter'
 
+interface payment {
+  "type": 'card' | 'cash'
+}
 const apiKey = `${process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}`
 const stripe = loadStripe(apiKey)
+
 
 export const CheckoutPage: React.FC<{
   settings: Settings
@@ -36,6 +41,7 @@ export const CheckoutPage: React.FC<{
   const { theme } = useTheme()
 
   const { cart, cartIsEmpty, cartTotal } = useCart()
+  const [paymentType, setPaymentType] = useState<payment>({type:'cash'})
 
   useEffect(() => {
     if (user !== null && cartIsEmpty) {
@@ -43,7 +49,7 @@ export const CheckoutPage: React.FC<{
     }
   }, [router, user, cartIsEmpty])
 
-  useEffect(() => {
+  /*useEffect(() => {
     if (user && cart && hasMadePaymentIntent.current === false) {
       hasMadePaymentIntent.current = true
 
@@ -54,6 +60,8 @@ export const CheckoutPage: React.FC<{
             {
               method: 'POST',
               credentials: 'include',
+              body: JSON.stringify(paymentType)
+
             },
           )
 
@@ -69,12 +77,31 @@ export const CheckoutPage: React.FC<{
           setError('Something went wrong.')
         }
       }
-
       makeIntent()
     }
-  }, [cart, user])
+  }, [cart, user])*/
 
   if (!user || !stripe) return null
+
+  const makePayment = async () => {
+    try {
+      const paymentRequest = await fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/create-payment-intent`,
+        {
+          method: 'POST',
+          credentials: 'include',
+          body: JSON.stringify(paymentType)
+        },
+      )
+      const res = await paymentRequest.json()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const makeCardPayment = ()=>{
+
+  }
 
   return (
     <Fragment>
@@ -136,18 +163,26 @@ export const CheckoutPage: React.FC<{
           </ul>
         </div>
       )}
-      {!clientSecret && !error && (
+      
+        <p>Choose your payment method</p><br/>
+        <div style={{display:'flex', gap:'1rem'}}>
+          <Button label='BANK TRANSFER' icon={`/assets/icons/transfer-money.png`} appearance='secondary' onClick={makePayment} className={classes.cashPayment}/>
+          <Button title={'Coming soon'} label='CARD' icon={`/assets/icons/credit-card.png`} appearance='secondary' onClick={makeCardPayment} className={classes.creditCard}/>
+        </div>
+      
+
+      {/*!clientSecret && !error && (
         <div className={classes.loading}>
           <LoadingShimmer number={2} />
         </div>
-      )}
-      {!clientSecret && error && (
+      )*/}
+      {/*!clientSecret && error && (
         <div className={classes.error}>
           <p>{`Error: ${error}`}</p>
           <Button label="Back to cart" href="/cart" appearance="secondary" />
         </div>
-      )}
-      {clientSecret && (
+      )*/}
+      {/*clientSecret && (
         <Fragment>
           <h3 className={classes.payment}>Payment Details</h3>
           {error && <p>{`Error: ${error}`}</p>}
@@ -179,7 +214,7 @@ export const CheckoutPage: React.FC<{
             <CheckoutForm />
           </Elements>
         </Fragment>
-      )}
+      )*/}
     </Fragment>
   )
 }

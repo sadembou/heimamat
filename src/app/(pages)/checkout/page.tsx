@@ -25,7 +25,7 @@ export default async function Checkout() {
     settings = await fetchSettings()
   } catch (error) {
     // no need to redirect to 404 here, just simply render the page with fallback data where necessary
-    console.error(error) // eslint-disable-line no-console
+    console.error(`Error fetching the settings: ${error}`) // eslint-disable-line no-console
   }
 
   return (

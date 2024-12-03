@@ -1,16 +1,19 @@
 import React from 'react'
 
-import { Page } from '../../../payload/payload-types'
+import { Media, Page } from '../../../payload/payload-types'
 import { CMSLink } from '../../_components/Link'
 import RichText from '../../_components/RichText'
 
 import classes from './index.module.scss'
-import { Media } from '../../_components/Media'
 
 export const CustomHero: React.FC<Page['hero']> = ({ richText, media, links }) => {
-    const mediaUrl = media && typeof(media) != "string" &&  `${process.env.NEXT_PUBLIC_SERVER_URL}/media/${media.filename}`
-    console.log(media)
-    return (
+  if(!media){
+    return null
+  }
+  
+  const mediaUrl = media && typeof(media) != "string" &&  `${media.cloudinary.secure_url}`
+  if(!mediaUrl) return null
+  return (
     <section className={classes.hero}>
       <div className={classes.heroWrapper} style={{backgroundImage: `url(${mediaUrl})`}}>
         <div className={classes.heroTextBox}>

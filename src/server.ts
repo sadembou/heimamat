@@ -11,9 +11,17 @@ import express from 'express'
 import payload from 'payload'
 
 import { seed } from './payload/seed'
+import { mediaManagement } from 'payload-cloudinary-plugin'
 
 const app = express()
 const PORT = process.env.PORT || 3000
+
+// Add Cloudinary dependency
+app.use(mediaManagement({
+  cloud_name:process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+}));
 
 const start = async (): Promise<void> => {
   await payload.init({

@@ -19,7 +19,7 @@ const FooterComponent = ({footer} : {footer:Footer}) => {
             <ul className={classes.inclusions}>
                 {inclusions.map(({title, description, icon}, index)=>(
                     <li key={title}>
-                        <Image src={icon} alt={title} width={32} height={32} className={classes.icon}/>
+                        <img src={icon} alt={title} width={32} height={32} className={classes.icon}/>
                         <h5 className={classes.title}>{title}</h5>
                         <p>{description}</p>
                     </li>
@@ -30,7 +30,7 @@ const FooterComponent = ({footer} : {footer:Footer}) => {
             <Gutter>
                 <div className={classes.wrap}>
                     <Link href='/'>
-                        <Image src='/logo_text_white_v2.png' alt='logo' width={170} height={170}/>
+                        <img src='/logo_text_white_v2.png' alt='logo' width={170} height={170}/>
                     </Link>
                     <p>{footer?.copyright}</p>
                     <div className={classes.socialLinks}>
@@ -38,8 +38,8 @@ const FooterComponent = ({footer} : {footer:Footer}) => {
                             const icon = link.icon as Media;
                             return(
                                 <Button key={link.label} el='link' href={link.url} newTab = {true} className={classes.socialLinkItem} >
-                                    <Image
-                                        src={icon.url}
+                                    <img
+                                        src={icon.cloudinary.secure_url}
                                         alt={link.label}
                                         width={24}
                                         height={24}

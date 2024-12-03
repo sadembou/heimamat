@@ -9,7 +9,8 @@ import stripePlugin from '@payloadcms/plugin-stripe'
 import { slateEditor } from '@payloadcms/richtext-slate' // editor-import
 import dotenv from 'dotenv'
 import path from 'path'
-import { buildConfig } from 'payload/config'
+import { buildConfig, Plugin } from 'payload/config'
+import cloudinaryPlugin from "payload-cloudinary-plugin/dist/plugins"; 
 
 import Categories from './collections/Categories'
 import { Media } from './collections/Media'
@@ -28,6 +29,7 @@ import { Header } from './globals/Header'
 import { Settings } from './globals/Settings'
 import { priceUpdated } from './stripe/webhooks/priceUpdated'
 import { productUpdated } from './stripe/webhooks/productUpdated'
+import { cloudStorage } from '@payloadcms/plugin-cloud-storage'
 
 const generateTitle: GenerateTitle = () => {
   return 'My Store'
@@ -73,6 +75,18 @@ export default buildConfig({
         },
       }
     },
+  },
+  email:{
+    fromAddress:process.env.HOSTINGER_FROM_ADDRESS,
+    fromName:process.env.HOSTINGER_FROM_NAME,
+    transportOptions:{
+      host: process.env.HOSTINGER_SMTP_HOST,
+      port: process.env.HOSTINGER_SMTP_PORT,
+      _auth: {
+        user: process.env.HOSTINGER_SMTP_USER,
+        pass: process.env.HOSTINGER_SMTP_PASS,
+      },
+    }
   },
   editor: slateEditor({}), // editor-config
   // database-adapter-config-start
@@ -142,7 +156,8 @@ export default buildConfig({
       generateTitle,
       uploadsCollection: 'media',
     }),
-    payloadCloud(),
+    //payloadCloud(),
+    cloudinaryPlugin()
   ],
   // localization
   localization: {

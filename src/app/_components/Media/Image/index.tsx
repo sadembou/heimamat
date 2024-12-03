@@ -43,7 +43,8 @@ export const Image: React.FC<MediaProps> = props => {
 
     const filename = fullFilename
 
-    src = `${process.env.NEXT_PUBLIC_SERVER_URL}/media/${filename}`
+    //src = `${process.env.NEXT_PUBLIC_SERVER_URL}/media/${filename}`
+    src=resource.cloudinary.secure_url
   }
 
   // NOTE: this is used by the browser to determine which image to download at different screen sizes
@@ -52,11 +53,11 @@ export const Image: React.FC<MediaProps> = props => {
     .join(', ')
 
   return (
-    <NextImage
+    <img
       className={[isLoading && classes.placeholder, classes.image, imgClassName]
         .filter(Boolean)
         .join(' ')}
-      src={src}
+      src={src as string}
       alt={alt || ''}
       onClick={onClick}
       onLoad={() => {
@@ -65,11 +66,9 @@ export const Image: React.FC<MediaProps> = props => {
           onLoadFromProps()
         }
       }}
-      fill={fill}
       width={!fill ? width : undefined}
       height={!fill ? height : undefined}
       sizes={sizes}
-      priority={priority}
     />
   )
 }

@@ -28,7 +28,7 @@ export default async function Cart() {
       slug: 'cart',
     })
   } catch (error) {
-    console.error(error)
+    console.error(`Error fetching the order: ${error}`)
   }
   if (!page) {
     page = staticCart
@@ -43,7 +43,7 @@ export default async function Cart() {
   try {
     settings = await fetchSettings()
   } catch (error) {
-    console.error(error)
+    console.error(`Error fetching the page settings: ${error}`)
   }
 
   return (
