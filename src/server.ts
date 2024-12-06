@@ -27,6 +27,20 @@ const start = async (): Promise<void> => {
   await payload.init({
     secret: process.env.PAYLOAD_SECRET || '',
     express: app,
+    email: {
+      fromName: process.env.HOSTINGER_FROM_NAME,
+      fromAddress: process.env.HOSTINGER_FROM_ADDRESS,
+      transportOptions: {
+        host: process.env.HOSTINGER_SMTP_HOST,
+        auth: {
+          user: process.env.HOSTINGER_SMTP_USER,
+          pass: process.env.HOSTINGER_SMTP_PASS,
+        },
+        port: Number(process.env.HOSTINGER_SMTP_PORT),
+        secure: Number(process.env.HOSTINGER_SMTP_PORT) === 465, // true for port 465, false (the default) for 587 and others
+        requireTLS: true,
+      },
+    },
     onInit: () => {
       payload.logger.info(`HeimsSmakk Admin URL: ${payload.getAdminURL()}`)
     },

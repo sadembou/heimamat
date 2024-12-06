@@ -76,18 +76,6 @@ export default buildConfig({
       }
     },
   },
-  email:{
-    fromAddress:process.env.HOSTINGER_FROM_ADDRESS,
-    fromName:process.env.HOSTINGER_FROM_NAME,
-    transportOptions:{
-      host: process.env.HOSTINGER_SMTP_HOST,
-      port: process.env.HOSTINGER_SMTP_PORT,
-      _auth: {
-        user: process.env.HOSTINGER_SMTP_USER,
-        pass: process.env.HOSTINGER_SMTP_PASS,
-      },
-    }
-  },
   editor: slateEditor({}), // editor-config
   // database-adapter-config-start
   db: mongooseAdapter({
